@@ -18,11 +18,19 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	source $(brew --prefix)/etc/bash_completion
 fi
 
-# Load RVM into a shell session *as a function
+# Load RVM into a shell session as a function
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# Homeshick
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+# Load Homeshick and it's bash completions
+if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
+	source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+
+	# Refresh
+	homeshick --quiet refresh 1
+fi
+if [ -f "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash" ]; then
+	source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
