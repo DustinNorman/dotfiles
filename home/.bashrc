@@ -1,4 +1,3 @@
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export PATH=/usr/local/bin:$PATH
 
 # Make Sublime Text the default editor
@@ -17,9 +16,6 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	source $(brew --prefix)/etc/bash_completion
 fi
-
-# Load RVM into a shell session as a function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # Load Homeshick and it's bash completions
 if [ -f "$HOME/.homesick/repos/homeshick/homeshick.sh" ]; then
